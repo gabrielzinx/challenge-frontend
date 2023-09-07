@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 84%;
+    height: 88px;
+    max-width: 1120px;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+    gap: 32px;
+}
+
+.list li button {
+    font-family: var(--font-default);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    color: var(--text-dark-support);
+    text-decoration: none;
+    text-decoration-color: transparent;
+    text-underline-offset: 0;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.list li button:hover {
+    text-decoration: underline 2px;
+    text-underline-offset: 2px;
+}
+
+.list li button.selected {
+    color: var(--text-dark);
+    font-weight: 600;
+    text-decoration: underline 5px;
+    text-decoration-color: var(--others-orange-low);
+    text-underline-offset: 4px;
+}
