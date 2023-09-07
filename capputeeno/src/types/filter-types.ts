@@ -1,5 +1,5 @@
 export enum FilterType {
-    "all",
-    "shirt",
-    "mug"
+    "ALL",
+    "SHIRT",
+    "MUG"
 }

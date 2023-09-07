@@ -7,8 +7,8 @@ import { PriorityTypes } from "@/types/priority-types";
 export const FilterContext = createContext({
     search: '',
     page: 0,
-    type: FilterType.all,
-    priority: PriorityTypes.news,
+    type: FilterType.ALL,
+    priority: PriorityTypes[""],
     setPriority: (value: PriorityTypes) => { },
     setSearch: (value: string) => { },
     setPage: (value: number) => { },
@@ -23,8 +23,8 @@ export default function FilterContextProvider({ children }: FilterProviderProps)
 
     const [search, setSearch] = useState('');
     const [page, setPage] = useState(0);
-    const [type, setType] = useState(FilterType.all);
-    const [priority, setPriority] = useState(PriorityTypes["best-sellers"]);
+    const [type, setType] = useState(FilterType.ALL);
+    const [priority, setPriority] = useState(PriorityTypes[""]);
 
     return (
         <FilterContext.Provider
