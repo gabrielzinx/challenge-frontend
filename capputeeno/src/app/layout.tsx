@@ -1,3 +1,4 @@
+import FilterContextProvider from '../contexts/filter-context';
 import './globals.css';
 import type { Metadata } from 'next';
 
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="pt-br">
-            <body suppressHydrationWarning={true}>{children}</body>
+            <FilterContextProvider>
+                <body suppressHydrationWarning={true}>{children}</body>
+            </FilterContextProvider>
         </html>
     )
 }
