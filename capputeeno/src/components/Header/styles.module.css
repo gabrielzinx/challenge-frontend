@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 84%;
+    height: 88px;
+    max-width: 1120px;
+    background-color: #FFF;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1 0 250px;
+    width: 50%;
+}
+
+.logo a {
+    color: var(--text-bold);
+    font-family: var(--font-title);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: none;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1 0 250px;
+    width: 50%;
+    gap: 24px;
+}
