@@ -1,9 +1,11 @@
 'use client';
 
+import { useContext } from 'react';
 import { FilterType } from '@/types/filter-types';
 import { FilterContext } from '../../contexts/filter-context';
+
+import SelectPriority from '../SelectPriority';
 import styles from './styles.module.css';
-import { useContext } from 'react';
 
 export default function Nav() {
 
@@ -14,31 +16,31 @@ export default function Nav() {
             <ul className={styles.list}>
                 <li>
                     <button
-                        className={type === FilterType.all ? styles.selected : ""}
-                        onClick={() => setType(FilterType.all)}
+                        className={type === FilterType.ALL ? styles.selected : ""}
+                        onClick={() => setType(FilterType.ALL)}
                     >
                         Todos os produtos
                     </button>
                 </li>
                 <li>
                     <button
-                        className={type === FilterType.shirt ? styles.selected : ""}
-                        onClick={() => setType(FilterType.shirt)}
+                        className={type === FilterType.SHIRT ? styles.selected : ""}
+                        onClick={() => setType(FilterType.SHIRT)}
                     >
                         Camisetas
                     </button>
                 </li>
                 <li>
                     <button
-                        className={type === FilterType.mug ? styles.selected : ""}
-                        onClick={() => setType(FilterType.mug)}
+                        className={type === FilterType.MUG ? styles.selected : ""}
+                        onClick={() => setType(FilterType.MUG)}
                     >
                         Canecas
                     </button>
                 </li>
             </ul>
             <div className={styles.actions}>
-                <p>Em desenvolvimento...</p>
+                <SelectPriority />
             </div>
         </nav>
     )

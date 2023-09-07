@@ -5,7 +5,7 @@
     align-items: center;
     flex-wrap: wrap;
     width: 84%;
-    height: 88px;
+    padding-block: 16px;
     max-width: 1120px;
     background-color: #FFF;
 }
