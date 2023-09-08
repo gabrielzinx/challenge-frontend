@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import { FilterType } from '@/types/filter-types';
-import { FilterContext } from '../../contexts/filter-context';
+import { FilterContext } from '@/contexts/filter-context';
 
 import SelectPriority from '../SelectPriority';
 import styles from './styles.module.css';

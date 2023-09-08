@@ -20,6 +20,8 @@
     ],
     "paths": {
       "@/components/*": ["./src/components/*"],
+      "@/contexts/*": ["./src/contexts/*"],
+      "@/utils/*": ["./src/utils/*"],
       "@/types/*": ["./src/types/*"]
     }
   },
