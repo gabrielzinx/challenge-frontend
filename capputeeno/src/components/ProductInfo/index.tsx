@@ -63,7 +63,7 @@ export default function ProductInfo({ id }: { id: string }) {
                     <p className={styles.productDescription}>{product.description}</p>
                 </section>
 
-                <ButtonAddToCart />
+                <ButtonAddToCart id={product.id} />
 
             </article>
         </main>
