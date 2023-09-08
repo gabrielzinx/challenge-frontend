@@ -15,3 +15,8 @@ export interface ProductInfoType {
     description: string,
     category: string,
 }
+
+export interface ProductLocalStorage {
+    id: string,
+    quantity: number
+}
