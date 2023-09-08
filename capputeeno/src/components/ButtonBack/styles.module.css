@@ -1,0 +1,23 @@
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.text {
+    color: #617480;
+    font-family: var(--font-default);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.text:hover {
+    text-decoration: underline;
+}
