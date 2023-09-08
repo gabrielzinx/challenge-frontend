@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Nav from "@/components/Nav";
+import Pagination from "@/components/Pagination";
 
 export default function HomePage() {
     return (
@@ -20,6 +21,7 @@ export default function HomePage() {
                 backgroundColor: 'var(--shapes-light-92-gray)'
             }}>
                 <Nav />
+                <Pagination />
             </div>
         </main>
     )
