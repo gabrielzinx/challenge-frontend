@@ -1,15 +1,16 @@
 import { formatPrice } from "@/utils/format-price";
 import Link from "next/link";
 import styles from './styles.module.css';
+import { ProductCardType } from "@/types/product-types";
 
-export default function ProductCard() {
+export default function ProductCard({ id, name, image_url, price_in_cents }: ProductCardType) {
     return (
-        <Link href={"#"} className={styles.card}>
-            <img src="https://storage.googleapis.com/xesque-dev/challenge-images/camiseta-05.jpg" alt="Camiseta not today" className={styles.image} />
+        <Link href={`/product/${id}`} className={styles.card}>
+            <img src={image_url} alt={`image-${name}`} className={styles.image} />
             <section className={styles.content}>
-                <h3 className={styles.title}>Camiseta not today</h3>
+                <h3 className={styles.title}>{name}</h3>
                 <div className={styles.divisor}></div>
-                <p className={styles.priceText}>{formatPrice(5300)}</p>
+                <p className={styles.priceText}>{formatPrice(price_in_cents)}</p>
             </section>
         </Link>
     )
