@@ -1,7 +1,8 @@
 import ButtonBack from "@/components/ButtonBack";
 import Header from "@/components/Header";
+import ProductInfo from "@/components/ProductInfo";
 
-export default function ProductPage() {
+export default function ProductPage({ params }: { params: { id: string } }) {
     return (
         <main style={{
             display: 'flex',
@@ -16,7 +17,7 @@ export default function ProductPage() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 width: '100vw',
-                height: '100%',
+                height: 'calc(100vh - 92px)',
                 backgroundColor: 'var(--shapes-light-92-gray)'
             }}>
                 <nav style={{
@@ -30,6 +31,7 @@ export default function ProductPage() {
                 }}>
                     <ButtonBack />
                 </nav>
+                <ProductInfo id={params.id} />
             </div>
         </main >
     )
