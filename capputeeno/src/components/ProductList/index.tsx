@@ -6,9 +6,11 @@ import { useState, useContext, useEffect } from "react";
 
 import ProductCard from "@/components/ProductCard";
 import graphqlQuery from "@/utils/graphql-query";
+import Loading from "./SkeletonLoading";
 
 export default function ProductList() {
 
+    const [isLoading, setLoading] = useState(true);
     const [products, setProducts] = useState<ProductCardType[]>([]);
     const { type, priority, page } = useContext(FilterContext);
 
@@ -25,11 +27,12 @@ export default function ProductList() {
             const { data } = await response.json();
 
             setProducts(data.allProducts);
+            setLoading(false);
         }
 
         getProductsData();
     }, [type, priority, page]);
-    
+
     return (
         <ul style={{
             display: 'flex',
@@ -42,17 +45,19 @@ export default function ProductList() {
             gap: '32px',
             maxWidth: '1120px',
         }}>
-            {products.map(({ id, name, image_url, price_in_cents, created_at, sales }) => {
-                return <ProductCard
-                    key={`product-card-${type}-${id}`}
-                    id={id}
-                    name={name}
-                    image_url={image_url}
-                    price_in_cents={price_in_cents}
-                    created_at={created_at}
-                    sales={sales}
-                />
-            })}
+            {isLoading ? <Loading /> : <>
+                {products.map(({ id, name, image_url, price_in_cents, created_at, sales }) => {
+                    return <ProductCard
+                        key={`product-card-${type}-${id}`}
+                        id={id}
+                        name={name}
+                        image_url={image_url}
+                        price_in_cents={price_in_cents}
+                        created_at={created_at}
+                        sales={sales}
+                    />
+                })}
+            </>}
         </ul>
     )
 }

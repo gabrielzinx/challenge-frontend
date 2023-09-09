@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    width: 256px;
+    background-color: #ffffff66;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    height: 300px;
+    border-radius: 4px 4px 0 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 16px 12px;
+    gap: 18px;
+}
+
+.title {
+    width: 80%;
+    height: 16px;
+    border-radius: 4px;
+    cursor: text;
+}
+
+.divisor {
+    display: block;
+    background-color: var(--shapes-02);
+    width: 100%;
+    height: 2px;
+}
+
+.sales {
+    width: 18%;
+    height: 16px;
+    border-radius: 4px;
+    cursor: text;
+}
+
+.skeleton {
+    background: #eee;
+    background: linear-gradient(110deg, #e0e0e0 8%, #f0f0f0 18%, #e0e0e0 33%);
+    background-size: 240% 100%;
+    animation: 1.5s skeleton-loading linear infinite;
+    border: 0;
+}
+
+@keyframes skeleton-loading {
+    to {
+        background-position-x: -210%;
+    }
+}
