@@ -1,17 +1,15 @@
 'use client'
 
 import { SvgShoppingBag } from "@/components/Icons";
-import { ProductLocalStorage } from "@/types/product-types";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import styles from './styles.module.css';
+import { useCart } from "@/contexts/cart-context";
 
 export default function ButtonAddToCart({ id }: { id: string }) {
 
-    const { value, updateLocalStorage } = useLocalStorage<[ProductLocalStorage?]>('cart-products', []);
-    
+    const { addToCart } = useCart();
+
     const addProductToCart = (id: string): void => {
-        value.push({id: id, quantity: 1});
-        updateLocalStorage(value);
+        addToCart({ id: id, quantity: 1 });
     }
 
     return (
@@ -19,7 +17,7 @@ export default function ButtonAddToCart({ id }: { id: string }) {
             <button className={styles.addToCartButton} onClick={() => addProductToCart(id)}>
                 <SvgShoppingBag path={{ stroke: '#FFF' }} />
                 <span className={styles.buttonText}>Adicionar ao Carrinho</span>
-            </button>   
+            </button>
         </>
     )
 }
