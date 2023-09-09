@@ -5,9 +5,11 @@ import styles from './style.module.css';
 import { ProductInfoType } from '@/types/product-types';
 import { formatPrice } from '@/utils/format-price';
 import ButtonAddToCart from '@/components/ButtonAddToCart';
+import Loading from './SkeletonLoading';
 
 export default function ProductInfo({ id }: { id: string }) {
 
+    const [isLoading, setLoading] = useState(true);
     const [product, setProduct] = useState<ProductInfoType>({
         id: "",
         name: "",
@@ -37,6 +39,7 @@ export default function ProductInfo({ id }: { id: string }) {
             const { data } = await response.json();
 
             setProduct(data.Product);
+            setLoading(false);
 
         }
 
@@ -45,27 +48,29 @@ export default function ProductInfo({ id }: { id: string }) {
 
 
     return (
-        <main className={styles.productInfo}>
-            <div className={styles.productImage}>
-                <img src={product.image_url} alt={`foto-${product.name}`} />
-            </div>
-            <article className={styles.productDetails}>
-                <section>
-                    <p className={styles.productCategory}>{product.category === "mugs" ? "Caneca" : "Camiseta"}</p>
-                    <h1 className={styles.productName}>{product.name}</h1>
-                    <h2 className={styles.productPrice}>{formatPrice(product.price_in_cents)}</h2>
-                </section>
+        <>
+            {isLoading ? <Loading /> : <main className={styles.productInfo}>
+                <div className={styles.productImage}>
+                    <img src={product.image_url} alt={`foto-${product.name}`} />
+                </div>
+                <article className={styles.productDetails}>
+                    <section>
+                        <p className={styles.productCategory}>{product.category === "mugs" ? "Caneca" : "Camiseta"}</p>
+                        <h1 className={styles.productName}>{product.name}</h1>
+                        <h2 className={styles.productPrice}>{formatPrice(product.price_in_cents)}</h2>
+                    </section>
 
-                <p className={styles.productShipping}>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
+                    <p className={styles.productShipping}>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
 
-                <section>
-                    <h2 className={styles.productDescriptionTitle}>Descrição</h2>
-                    <p className={styles.productDescription}>{product.description}</p>
-                </section>
+                    <section>
+                        <h2 className={styles.productDescriptionTitle}>Descrição</h2>
+                        <p className={styles.productDescription}>{product.description}</p>
+                    </section>
 
-                <ButtonAddToCart id={product.id} />
+                    <ButtonAddToCart id={product.id} />
 
-            </article>
-        </main>
+                </article>
+            </main>}
+        </>
     )
 }
