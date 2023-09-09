@@ -1,3 +1,4 @@
+import { CartProvider } from '@/contexts/cart-context';
 import FilterContextProvider from '../contexts/filter-context';
 import './globals.css';
 import type { Metadata } from 'next';
@@ -15,7 +16,9 @@ export default function RootLayout({
     return (
         <html lang="pt-br">
             <FilterContextProvider>
-                <body suppressHydrationWarning={true}>{children}</body>
+                <CartProvider>
+                    <body suppressHydrationWarning={true}>{children}</body>
+                </CartProvider>
             </FilterContextProvider>
         </html>
     )

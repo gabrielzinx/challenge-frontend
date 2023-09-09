@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.itemCount {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    margin-top: 16px;
+    margin-left: 14px;
+    border-radius: 100%;
+    background-color: var(--others-delete);
+
+    color: #FFF;
+    text-align: center;
+    font-family: var(--font-default);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+}
