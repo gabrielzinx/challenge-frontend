@@ -1,9 +1,9 @@
 'use client'
 
 import { useContext, useEffect } from "react";
-import { FilterContext } from "../../contexts/filter-context";
+import { FilterContext } from "../../../contexts/filter-context";
 import { FilterType } from "@/types/filter-types";
-import { SvgArrowLeft, SvgArrowRight } from "../Icons";
+import { SvgArrowLeft, SvgArrowRight } from "../../Icons";
 import styles from './styles.module.css';
 
 export default function Pagination() {

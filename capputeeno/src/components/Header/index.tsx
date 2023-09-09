@@ -1,8 +1,7 @@
 import Link from "next/link";
-import SearchBar from "@/components/SearchBar";
-import { SvgShoppingBag } from "@/components/Icons";
-import ButtonShoppingBag from "@/components/ButtonShoppingBag";
+import ButtonShoppingBag from "@/components/Buttons/ShoppingBag";
 import styles from './styles.module.css';
+import SearchBar from "./SearchBar";
 
 export default function Header() {
     return (

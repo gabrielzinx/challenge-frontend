@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './style.module.css';
 import { ProductInfoType } from '@/types/product-types';
 import { formatPrice } from '@/utils/format-price';
-import ButtonAddToCart from '@/components/ButtonAddToCart';
+import ButtonAddToCart from '@/components/Buttons/AddToCart';
 import Loading from './SkeletonLoading';
 
 export default function ProductInfo({ id }: { id: string }) {

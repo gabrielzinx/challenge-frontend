@@ -1,4 +1,4 @@
-import ButtonBack from "@/components/ButtonBack";
+import ButtonBack from "@/components/Buttons/Back";
 import Header from "@/components/Header";
 import ProductInfo from "@/components/ProductInfo";
 

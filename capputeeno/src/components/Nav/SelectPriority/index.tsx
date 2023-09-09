@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 import { SvgArrowDown } from '@/components/Icons';
 import styles from './styles.module.css';
-import { FilterContext } from '../../contexts/filter-context';
+import { FilterContext } from '../../../contexts/filter-context';
 import { PriorityTypes } from '@/types/priority-types';
 
 export default function SelectPriority() {
