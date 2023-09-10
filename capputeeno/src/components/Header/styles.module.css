@@ -1,13 +1,21 @@
 .header {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    width: 100%;
+}
+
+.limiter {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     width: 84%;
     padding-block: 16px;
     max-width: 1120px;
-    background-color: #FFF;
 }
 
 .logo {
