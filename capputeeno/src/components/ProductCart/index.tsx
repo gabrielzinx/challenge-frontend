@@ -1,3 +1,5 @@
+'use client'
+
 import { formatPrice } from "@/utils/format-price";
 import { ProductInfoType } from "@/types/product-types";
 import { SvgButtonTrash, SvgArrowDown } from "@/components/Icons";
