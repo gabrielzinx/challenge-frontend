@@ -1,0 +1,106 @@
+.productCart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 212px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.productImage {
+    width: 256px;
+    height: 100%;
+}
+
+.productImage img {
+    width: 256px;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+    object-fit: cover;
+}
+
+.productContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 28px;
+    height: 100%;
+}
+
+.productHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.productTitle {
+    color: var(--text-dark, #41414d);
+    font-family: var(--font-default);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+}
+
+.productDeleteButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+}
+
+.productDescription {
+    color: var(--text-dark, #41414d);
+    font-family: var(--font-default);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.productBottomSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.productQuantityButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f5f6;
+    flex-shrink: 0;
+    width: 65px;
+    height: 40px;
+    padding-inline: 12px 4px;
+    border-radius: 8px;
+    border: 2px solid #a8a8b3;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--support-text-dark, #737380);
+    text-align: center;
+    font-family: var(--font-default);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    text-transform: uppercase;
+}
+
+.productPrice {
+    color: var(--shapes-dark-tooltip, #09090a);
+    font-family: var(--font-default);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
