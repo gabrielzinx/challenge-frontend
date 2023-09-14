@@ -2,11 +2,12 @@
 
 import { formatPrice } from "@/utils/format-price";
 import { ProductInfoType, ProductLocalStorage } from "@/types/product-types";
-import { SvgButtonTrash, SvgArrowDown } from "@/components/Icons";
+import { SvgButtonTrash } from "@/components/Icons";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
+import QuantitySelector from "./QuantitySelector";
 
-interface ProductLocalStorageClient extends ProductLocalStorage {
+export interface ProductLocalStorageClient extends ProductLocalStorage {
     onQuantityChange: (productId: string, newQuantity: number) => void;
 }
 
@@ -52,7 +53,7 @@ export default function ProductCart({ id, quantity, onQuantityChange }: ProductL
             <figure className={styles.productImage}>
                 <img
                     src={product.image_url}
-                    alt={`foto de ${product.name}`}
+                    alt={`foto-${product.name}`}
                 />
             </figure>
 
@@ -67,12 +68,11 @@ export default function ProductCart({ id, quantity, onQuantityChange }: ProductL
                 <p className={styles.productDescription}>{product.description}</p>
 
                 <div className={styles.productBottomSection}>
-                    <button className={styles.productQuantityButton} onClick={() => {
-                        onQuantityChange(id, quantity+1)
-                    }}>
-                        {quantity}
-                        <SvgArrowDown />
-                    </button>
+                    <QuantitySelector
+                        id={id}
+                        quantity={quantity}
+                        onQuantityChange={onQuantityChange}
+                    />
                     <p className={styles.productPrice}>{formatPrice(product.price_in_cents)}</p>
                 </div>
             </article>
