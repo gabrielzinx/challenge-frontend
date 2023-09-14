@@ -3,8 +3,8 @@
 import { formatPrice } from "@/utils/format-price";
 import { ProductInfoType, ProductLocalStorage } from "@/types/product-types";
 import { SvgButtonTrash, SvgArrowDown } from "@/components/Icons";
-import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
 
 interface ProductLocalStorageClient extends ProductLocalStorage {
     onQuantityChange: (productId: string, newQuantity: number) => void;

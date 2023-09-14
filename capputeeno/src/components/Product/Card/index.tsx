@@ -1,7 +1,7 @@
 import { formatPrice } from "@/utils/format-price";
+import { ProductCardType } from "@/types/product-types";
 import Link from "next/link";
 import styles from './styles.module.css';
-import { ProductCardType } from "@/types/product-types";
 
 export default function ProductCard({ id, name, image_url, price_in_cents }: ProductCardType) {
     return (

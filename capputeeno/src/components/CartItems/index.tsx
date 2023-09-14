@@ -3,8 +3,8 @@
 import { formatPrice } from '@/utils/format-price';
 import { useCart } from '@/contexts/cart-context';
 import { ProductLocalStorage } from '@/types/product-types';
-import ProductCart from '../ProductCart';
-import ButtonBack from '../Buttons/Back';
+import ProductCart from '@/components/Product/Cart';
+import ButtonBack from '@/components/Buttons/Back';
 import styles from './styles.module.css';
 
 export default function CartItems() {

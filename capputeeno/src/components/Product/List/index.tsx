@@ -4,7 +4,7 @@ import { FilterContext } from "@/contexts/filter-context";
 import { ProductCardType } from "@/types/product-types";
 import { useState, useContext, useEffect } from "react";
 
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/Product/Card";
 import graphqlQuery from "@/utils/graphql-query";
 import Loading from "./SkeletonLoading";
 
