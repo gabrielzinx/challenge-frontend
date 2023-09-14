@@ -31,14 +31,14 @@ export default function Summary() {
                 </li>
                 <li className={styles.summaryItem}>
                     <p>Entrega</p>
-                    <p>{formatPrice(coastTotal > 90000 ? 0 : 4000)}</p>
+                    <p>{formatPrice(coastTotal > 90000 || coastTotal === 0 ? 0 : 4000)}</p>
                 </li>
 
                 <span className={styles.divider}></span>
 
                 <li className={styles.totalContent}>
                     <p>Total</p>
-                    <p>{formatPrice(coastTotal > 90000 ? coastTotal : coastTotal + 4000)}</p>
+                    <p>{formatPrice(coastTotal > 90000 ? coastTotal : coastTotal === 0 ? 0 : coastTotal + 4000)}</p>
                 </li>
 
                 <button className={styles.checkoutButton}>
