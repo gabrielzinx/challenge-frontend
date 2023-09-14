@@ -1,14 +1,18 @@
 'use client'
 
 import { formatPrice } from '@/utils/format-price';
-import Link from 'next/link';
-import styles from './styles.module.css';
 import { useCart } from '@/contexts/cart-context';
-
+import { SvgConfirmAction } from '../Icons';
+import { Modal } from '@/components/Modal';
+import Link from 'next/link';
+import router from 'next/router';
+import styles from './styles.module.css';
+import { useState } from 'react';
 
 export default function Summary() {
 
-    const { cart } = useCart();
+    const { cart, clearCart } = useCart();
+    const [showModal, setShowModal] = useState(false);
 
     const updatedListaDeItens = cart.map(item => ({
         ...item,
@@ -41,9 +45,39 @@ export default function Summary() {
                     <p>{formatPrice(coastTotal > 90000 ? coastTotal : coastTotal === 0 ? 0 : coastTotal + 4000)}</p>
                 </li>
 
-                <button className={styles.checkoutButton}>
+                <button className={styles.checkoutButton} onClick={() => {
+                    clearCart();
+                    setShowModal(true);
+                }}>
                     Finalizar a compra
                 </button>
+                {showModal && <div style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    width: "100vw",
+                    height: "100vh",
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    zIndex: 9999,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}> <Modal.Root>
+                        <Modal.Icon icon={<SvgConfirmAction />} />
+                        <Modal.Title>Compra Finalizada!</Modal.Title>
+                        <Modal.Actions>
+                            <Modal.Action
+                                style={{ backgroundColor: '#51B853' }}
+                                hoverStyle={{ backgroundColor: '#23b526' }}
+                                onClick={() => {
+                                    setShowModal(false);
+                                }}
+                            >
+                                Confirmar
+                            </Modal.Action>
+                        </Modal.Actions>
+                    </Modal.Root>
+                </div>}
             </ul>
 
             <ul className={styles.helpLinks}>
