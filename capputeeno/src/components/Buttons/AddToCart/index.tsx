@@ -4,12 +4,12 @@ import { SvgShoppingBag } from "@/components/Icons";
 import styles from './styles.module.css';
 import { useCart } from "@/contexts/cart-context";
 
-export default function ButtonAddToCart({ id }: { id: string }) {
+export default function ButtonAddToCart({ id, price_in_cents }: { id: string, price_in_cents: number }) {
 
     const { addToCart } = useCart();
 
     const addProductToCart = (id: string): void => {
-        addToCart({ id: id, quantity: 1 });
+        addToCart({ id: id, price_in_cents: price_in_cents, quantity: 1 });
     }
 
     return (

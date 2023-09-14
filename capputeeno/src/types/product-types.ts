@@ -18,5 +18,6 @@ export interface ProductInfoType {
 
 export interface ProductLocalStorage {
     id: string,
-    quantity: number
+    quantity: number,
+    price_in_cents: number
 }

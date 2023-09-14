@@ -1,6 +1,6 @@
 import ButtonBack from "@/components/Buttons/Back";
 import Header from "@/components/Header";
-import ProductInfo from "@/components/ProductInfo";
+import ProductInfo from "@/components/Product/Info";
 import styles from './styles.module.css';
 
 export default function ProductPage({ params }: { params: { id: string } }) {

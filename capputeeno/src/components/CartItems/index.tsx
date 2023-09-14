@@ -15,6 +15,13 @@ export default function CartItems() {
         updateQuantity(productId, newQuantity);
     };
 
+    const updatedListaDeItens = cart.map(item => ({
+        ...item,
+        total: item.price_in_cents * item.quantity,
+    }));
+
+    const coastTotal = updatedListaDeItens.reduce((total, item) => total + item.total, 0);
+
     return (
         <section className={styles.cartItems}>
             <nav className={styles.cartNav}>
@@ -22,15 +29,16 @@ export default function CartItems() {
             </nav>
             <h1 className={styles.cartTitle} onClick={() => {
             }}>Seu carrinho</h1>
-            <p className={styles.cartTotal}>Total (1 produtos) <strong>{formatPrice(41660)}</strong></p>
+            <p className={styles.cartTotal}>Total ({cart.length} {cart.length > 1 ? "produtos" : "produto"}) <strong>{formatPrice(coastTotal)}</strong></p>
             <ul className={styles.cartProductList}>
-                {cart.map(({ id, quantity }: ProductLocalStorage) => {
+                {cart.map(({ id, quantity, price_in_cents }: ProductLocalStorage) => {
                     return (
                         <ProductCart
                             key={`product-cart-${id}`}
                             id={id}
                             quantity={quantity}
                             onQuantityChange={handleQuantityChange}
+                            price_in_cents={price_in_cents}
                         />
                     )
                 })}

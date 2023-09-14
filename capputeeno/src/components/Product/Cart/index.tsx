@@ -11,7 +11,7 @@ export interface ProductLocalStorageClient extends ProductLocalStorage {
     onQuantityChange: (productId: string, newQuantity: number) => void;
 }
 
-export default function ProductCart({ id, quantity, onQuantityChange }: ProductLocalStorageClient) {
+export default function ProductCart({ id, quantity, price_in_cents, onQuantityChange }: ProductLocalStorageClient) {
 
     const [product, setProduct] = useState<ProductInfoType>({
         id: "",
@@ -72,8 +72,9 @@ export default function ProductCart({ id, quantity, onQuantityChange }: ProductL
                         id={id}
                         quantity={quantity}
                         onQuantityChange={onQuantityChange}
+                        price_in_cents={0}
                     />
-                    <p className={styles.productPrice}>{formatPrice(product.price_in_cents)}</p>
+                    <p className={styles.productPrice}>{formatPrice(price_in_cents * quantity)}</p>
                 </div>
             </article>
         </li>

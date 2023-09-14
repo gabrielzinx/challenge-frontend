@@ -67,7 +67,7 @@ export default function ProductInfo({ id }: { id: string }) {
                         <p className={styles.productDescription}>{product.description}</p>
                     </section>
 
-                    <ButtonAddToCart id={product.id} />
+                    <ButtonAddToCart id={product.id} price_in_cents={product.price_in_cents} />
 
                 </article>
             </main>}
