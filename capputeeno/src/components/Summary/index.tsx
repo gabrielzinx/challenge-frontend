@@ -20,6 +20,7 @@ export default function Summary() {
     }));
 
     const coastTotal = updatedListaDeItens.reduce((total, item) => total + item.total, 0);
+    const shippingPrice = coastTotal > 90000 || coastTotal === 0 ? 0 : 4000;
 
     return (
         <section className={styles.orderSummary}>
@@ -35,14 +36,14 @@ export default function Summary() {
                 </li>
                 <li className={styles.summaryItem}>
                     <p>Entrega</p>
-                    <p>{formatPrice(coastTotal > 90000 || coastTotal === 0 ? 0 : 4000)}</p>
+                    <p>{formatPrice(shippingPrice)}</p>
                 </li>
 
                 <span className={styles.divider}></span>
 
                 <li className={styles.totalContent}>
                     <p>Total</p>
-                    <p>{formatPrice(coastTotal > 90000 ? coastTotal : coastTotal === 0 ? 0 : coastTotal + 4000)}</p>
+                    <p>{formatPrice(coastTotal + shippingPrice)}</p>
                 </li>
 
                 <button className={styles.checkoutButton} onClick={() => {
