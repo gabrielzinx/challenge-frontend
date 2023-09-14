@@ -1,12 +1,16 @@
 'use client'
 
 import { formatPrice } from "@/utils/format-price";
-import { ProductInfoType } from "@/types/product-types";
+import { ProductInfoType, ProductLocalStorage } from "@/types/product-types";
 import { SvgButtonTrash, SvgArrowDown } from "@/components/Icons";
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 
-export default function ProductCart({ id }: { id: string }) {
+interface ProductLocalStorageClient extends ProductLocalStorage {
+    onQuantityChange: (productId: string, newQuantity: number) => void;
+}
+
+export default function ProductCart({ id, quantity, onQuantityChange }: ProductLocalStorageClient) {
 
     const [product, setProduct] = useState<ProductInfoType>({
         id: "",
@@ -63,8 +67,10 @@ export default function ProductCart({ id }: { id: string }) {
                 <p className={styles.productDescription}>{product.description}</p>
 
                 <div className={styles.productBottomSection}>
-                    <button className={styles.productQuantityButton}>
-                        5
+                    <button className={styles.productQuantityButton} onClick={() => {
+                        onQuantityChange(id, quantity+1)
+                    }}>
+                        {quantity}
                         <SvgArrowDown />
                     </button>
                     <p className={styles.productPrice}>{formatPrice(product.price_in_cents)}</p>

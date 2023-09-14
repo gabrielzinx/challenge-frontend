@@ -7,6 +7,7 @@ interface CartContextType {
     cart: ProductLocalStorage[];
     addToCart: (product: ProductLocalStorage) => void;
     removeFromCart: (productId: string) => void;
+    updateQuantity: (productId: string, newQuantity: number) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -37,8 +38,21 @@ export function CartProvider({ children }: CartProviderProps) {
         setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
     };
 
+    const updateQuantity = (productId: string, newQuantity: number) => {
+        setCart((prevCart) => {
+            // Encontre o produto com o ID correspondente e atualize sua quantidade
+            const updatedCart = prevCart.map((item) => {
+                if (item.id === productId) {
+                    return { ...item, quantity: newQuantity };
+                }
+                return item;
+            });
+            return updatedCart;
+        });
+    };
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
             {children}
         </CartContext.Provider>
     );
