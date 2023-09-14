@@ -1,11 +1,11 @@
 'use client'
 
 import { SvgCancelAction, SvgConfirmAction, SvgShoppingBag } from "@/components/Icons";
-import styles from './styles.module.css';
 import { useCart } from "@/contexts/cart-context";
 import { useState } from "react";
-import { Modal } from "@/components/Modal";
 import { useRouter } from "next/navigation";
+import { Modal } from "@/components/Modal";
+import styles from './styles.module.css';
 
 export default function ButtonAddToCart({ id, price_in_cents }: { id: string, price_in_cents: number }) {
 
@@ -32,7 +32,7 @@ export default function ButtonAddToCart({ id, price_in_cents }: { id: string, pr
                         return
                     }
                 }
-                
+
                 addProductToCart(id);
                 setShowModal(true)
             }}>
